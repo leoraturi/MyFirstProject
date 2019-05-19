@@ -1,0 +1,31 @@
+<apex:page Controller="TestAccount" sidebar="false" >
+  <apex:form >
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  
+  <script type="text/javascript">
+
+//Prevent conflict between jQuery and salesforce scripts
+$j = jQuery.noConflict();
+//This function hides the [New] button from the related list in a specific tab
+$j(document).ready(function hideButton(){
+        $j('[Value="New Lines"]').css({"visibility":"hidden"});
+    
+  
+});
+
+</script>
+
+  
+  <apex:detail subject="{!AccountID}" relatedList="false" title="false"/>
+  <apex:pageBlock >
+  
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!lstIteratorClass}" var="var">
+                <apex:column headerValue="LineNumber" value="{!var.LineNumber}"/>
+                <apex:column headerValue="LinkedBus" value="{!var.Count}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    
+  </apex:pageBlock>
+    </apex:form>
+</apex:page>

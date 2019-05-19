@@ -1,0 +1,26 @@
+<apex:page sidebar="false" showHeader="false" controller="TestController">
+<apex:form >
+<script src="https://www.google.com/recaptcha/api.js" ></script>
+<script>
+  function onSubmit(token) {
+    alert('token>>>>'+token);
+    alert('thanks ' + document.getElementById('field').value);
+  }
+
+  
+
+  function onload() {
+  alert('dasd');
+  grecaptcha.execute();
+   
+  }
+</script>
+
+ Name: (required) <input id="field" name="field"/>
+     <div id='recaptcha' class="g-recaptcha"
+          data-sitekey="6LfJBWQUAAAAAP7VhQFMFGmw0HpXsgRA5qVhLMyI"
+          data-callback="onSubmit"
+          data-size="invisible"></div>
+     <button id='submit' onclick="onload();">submit</button>
+</apex:form>
+</apex:page>

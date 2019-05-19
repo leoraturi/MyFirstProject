@@ -1,0 +1,37 @@
+<apex:page standardController="Account" extensions="ConsoleAccount">
+<apex:includeScript value="/soap/ajax/26.0/connection.js"/>
+<apex:includeScript value="/support/console/26.0/integration.js"/>
+<script>
+function RefreshPrimaryTab() 
+        {
+            
+            sforce.console.getFocusedPrimaryTabId(showTabId);
+        }
+
+        var showTabId = function showTabId(result) 
+        {
+            var tabId = result.id;
+            alert('Primary Tab IDs: primaryTabId ' + tabId );
+            sforce.console.refreshPrimaryTabById(tabId , true, refreshSuccess);
+        };
+
+        var refreshSuccess = function refreshSuccess(result) 
+        {
+            //Report whether refreshing the primary tab was successful
+            if (result.success == true) 
+            {
+                alert('Primary tab refreshed successfully');
+            } 
+            else 
+            {
+                alert('Primary did not refresh');
+            }
+        };
+    </script>
+<apex:form >
+  {!account.name}
+ <apex:inputField value="{!Account.SicDesc}"/>
+  <apex:commandLink value="www.google.com"/>
+  <apex:commandButton value="test" action="{!redirectpage}" oncomplete="RefreshPrimaryTab();"/>
+  </apex:form>
+</apex:page>

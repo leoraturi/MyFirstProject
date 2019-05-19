@@ -1,0 +1,22 @@
+<apex:page controller="MultiselectExampleController" sidebar="false" showHeader="true">
+    <apex:form >
+        
+        <apex:pageBlock title="Enter Bus Information">
+            Bus CRN <apex:inputText value="{!BusNo}"     maxlength="10"/>
+            
+            <c:MultiselectPicklist leftLabel="Available Lines"
+                leftOptions="{!allContacts}"
+                rightLabel="Linked Lines"
+                rightOptions="{!selectedContacts}"
+                size="14"
+                width="150px"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancle" action="{!Cancle}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <!--
+    <apex:outputText >{!message}</apex:outputText>
+    -->
+</apex:page>
