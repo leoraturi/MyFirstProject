@@ -4,6 +4,6 @@
 
 ## Resources
 
-## Description of Files and Directories
-333333333333333333333
+
+
 ## Issues
