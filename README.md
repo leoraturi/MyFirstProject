@@ -4,9 +4,4 @@
 
 ## Resources
 
-new-branch-2
-
-dddddddddddd111
-master
-
 ## Issues
